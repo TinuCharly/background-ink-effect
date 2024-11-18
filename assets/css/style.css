@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Bokor&display=swap");
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Bokor", system-ui;
+  width: 100%;
+  height: 100vh;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  position: relative;
+  padding: 40px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:  url(../images/bg.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  mask-image: url("../images/effect.gif");
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
+.content {
+    position: relative;
+    opacity: 0;
+    animation: showText 3.5s ease-in forwards;
+    animation-delay: 2.5s;
+}
+.content::before {
+    content: "";
+    width: 170%;
+    height: 100%;
+    left: 50%;
+    bottom: -60%;
+    transform: translateX(-50%);
+    position: absolute;
+    background: linear-gradient(to bottom, black, transparent);
+    filter: blur(20px);
+    clip-path: polygon(28% 0, 74% 0, 100% 100%, 0% 100%);
+}
+
+h1 {
+  font-size: 100px;
+  margin: 0;
+  line-height: 110px;
+  background: linear-gradient(to top, #37180d, #9d4526);
+  color: transparent;
+  letter-spacing: 5.1px;
+  background-clip: text;
+  filter: drop-shadow(0 -2px 2px #EECC76) drop-shadow(0 29px 10px rgba(31, 2, 2, 0.808));
+}
+
+@keyframes showText {
+    100% {
+        opacity: 1;
+    }
+}
